@@ -1,3 +1,5 @@
+import java.util.stream.IntStream;
+
 public class helloWorld {
     public static void main(String[] args) {
         Test myTest = new Test();
@@ -17,5 +19,15 @@ public class helloWorld {
         });
         //Java 8
         runner.run(() -> System.out.println("Lambda Executed!"));
+
+        System.out.println(isPrime(2));
+        System.out.println(isPrime(3));
+        System.out.println(isPrime(4));
+    }
+
+    private static boolean isPrime(int i) {
+        return i > 1 &&
+                IntStream.range(2,i)
+                .noneMatch(index -> i % index == 0);
     }
 }
